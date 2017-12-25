@@ -13,6 +13,13 @@ use Illuminate\Http\Request;
 |
 */
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
+// Route::middleware('auth:api')->get('/user', function (Request $request) {
+//     return $request->user();
+// });
+
+Route::group(['prefix' => '/v1', 'namespace' => 'Api\V1', 'as' => 'api.', 'middleware' => ['auth:api']], function () {
+
+    // Route::resource('projects', 'ProjectsController', ['except' => ['create', 'edit']]);
+    Route::resource('projects', 'ProjectsController', ['only' => ['index']]);
+
 });

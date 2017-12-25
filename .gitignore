@@ -39,3 +39,4 @@ Homestead.json
 /storage/logs
 /storage/users
 packages/
+.vscode
